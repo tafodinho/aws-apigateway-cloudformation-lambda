@@ -65,7 +65,8 @@ Resources:
   apiGatewayDeployment:
     Type: AWS::ApiGateway::Deployment
     DependsOn:
-      - apiGatewayRootMethod
+      - apiGatewayRootMethod1
+      - apiGatewayRootMethod2
     Properties:
       RestApiId: !Ref apiGateway
       StageName: !Ref apiGatewayStageName
