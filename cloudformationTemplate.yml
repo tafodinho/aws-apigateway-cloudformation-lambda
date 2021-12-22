@@ -155,7 +155,7 @@ Resources:
   lambdaLogGroup:
     Type: AWS::Logs::LogGroup
     Properties:
-      LogGroupName: !Sub /aws/lambda/${lambdaFunctionName}
+      LogGroupName: !Sub /aws/lambda/${lambdaFunctionName1}
       RetentionInDays: 90
 
 Outputs:
