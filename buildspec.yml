@@ -14,7 +14,7 @@ phases:
             - zip package2.zip *2.py
             - echo Build completed on `date`
     build:
-      on-failure: ABORT
+        on-failure: ABORT
         commands:
             - echo updating lambda function code
             - aws lambda update-function-code --function-name  tafang-function1 --zip-file fileb://package1.zip
