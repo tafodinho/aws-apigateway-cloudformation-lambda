@@ -19,7 +19,7 @@ phases:
             - echo updating lambda function code
             - aws lambda update-function-code --function-name  tafang-function1 --zip-file fileb://package1.zip
             - aws lambda update-function-code --function-name  tafang-function2 --zip-file fileb://package2.zip
-            - ng build --${BUILD_ENV}
+            - echo Build completed on `date`
     
 artifacts:
     files:
