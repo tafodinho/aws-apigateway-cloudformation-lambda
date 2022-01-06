@@ -1,0 +1,28 @@
+version: 0.2
+env:
+    variables:
+        # CACHE_CONTROL: "86400"
+        # S3_BUCKET: {-INSERT BUCKET NAME FOR STATIC WEBSITE HERE-}
+        # BUILD_FOLDER: {-INSERT THE NAME OF THE BUILD FOLDER HERE-}
+        # BUILD_ENV: "prod"
+phases:
+    pre_build:
+        on-failure: ABORT
+        commands:
+            - echo Zipping lambda function code
+            - zip package1.zip *1.py
+            - zip package2.zip *2.py
+            - echo Build completed on `date`
+    build:
+      on-failure: ABORT
+        commands:
+            - echo updating lambda function code
+            - aws lambda update-function-code --function-name  tafang-function1 --zip-file fileb://package1.zip
+            - aws lambda update-function-code --function-name  tafang-function2 --zip-file fileb://package2.zip
+            - ng build --${BUILD_ENV}
+    
+artifacts:
+    files:
+        - '**/*'
+    base-directory: 'dist*'
+    discard-paths: yes
