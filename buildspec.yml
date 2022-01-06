@@ -16,8 +16,3 @@ phases:
             - aws lambda update-function-code --function-name  tafang-function2 --zip-file fileb://package2.zip
             - echo Build completed on `date`
     
-artifacts:
-    files:
-        - '**/*'
-    base-directory: 'dist*'
-    discard-paths: yes
